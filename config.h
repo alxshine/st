@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Source Code Pro:style=Italic:pixelsize=17:antialias=true:autohint=true";
+static char *font = "Source Code Pro:Italic:pixelsize=17:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -16,7 +16,7 @@ static int borderpx = 2;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/zsh";
+static char *shell = "/bin/sh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -71,7 +71,7 @@ static unsigned int cursorthickness = 2;
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
  * it
  */
-static int bellvolume = 0;
+static int bellvolume = 20;
 
 /* default TERM value */
 char *termname = "st-256color";
@@ -93,8 +93,7 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
-// take colors from separate header file
-#include "gruvbox-dark.h"
+#include "gruvbox-dark.h" // get colors from external file
 static unsigned int defaultrcs = 257;
 
 /*
@@ -111,7 +110,7 @@ static unsigned int cursorshape = 2;
  */
 
 static unsigned int cols = 80;
-static unsigned int rows = 24;
+static unsigned int rows = 28;
 
 /*
  * Default colour and shape of the mouse cursor
@@ -164,6 +163,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*

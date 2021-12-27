@@ -1,0 +1,3 @@
+*.o
+config.h # config.h is only for local changes
+st
