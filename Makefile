@@ -7,7 +7,14 @@ include config.mk
 SRC = st.c x.c
 OBJ = $(SRC:.c=.o)
 
-all: options st
+all: build
+
+.PHONY: link
+link: build
+	ln -sf ${PWD}/st ~/.local/bin/
+	sudo ln -sf ${PWD}/st /usr/local/bin/
+
+build: options st
 
 options:
 	@echo st build options:
